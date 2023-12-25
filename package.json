@@ -1,0 +1,30 @@
+{
+  "name": "nextjs-chakra-framer-motion-portfolio",
+  "version": "1.0.0",
+  "description": "My personal portfolio website built with Next.js, Chakra UI, Framer Motion, and Three.js. This project showcases my skills, projects, and provides an interactive experience for visitors.",
+  "main": "index.js",
+  "scripts": {
+    "dev" :  "next dev -H 0.0.0.0",
+    "build" : "next build",
+    "prettier" : "prettier -write .",
+    "lint" : "next lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "F. Eren Dalcik",
+  "license": "MIT",
+  "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "framer-motion": "^10.16.16",
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "prettier": "^3.1.1"
+  }
+}

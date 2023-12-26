@@ -91,21 +91,15 @@ const Navbar = props => {
                 variant="outline"
                 aria-label="Options"
               />
-              <MenuList>
+              <MenuList legacyBehavior>
                 <NextLink legacyBehavior href="/" passHref>
-                  <a>
-                    <MenuItem as={Link}> About</MenuItem>
-                  </a>
+                  <MenuItem as={Link}> About</MenuItem>
                 </NextLink>
                 <NextLink legacyBehavior href="/works" passHref>
-                  <a>
-                    <MenuItem as={Link}> Works</MenuItem>
-                  </a>
+                  <MenuItem as={Link}> Works</MenuItem>
                 </NextLink>
                 <NextLink legacyBehavior href="/posts" passHref>
-                  <a>
-                    <MenuItem as={Link}> Projects </MenuItem>
-                  </a>
+                  <MenuItem as={Link}> Projects </MenuItem>
                 </NextLink>
               </MenuList>
             </Menu>

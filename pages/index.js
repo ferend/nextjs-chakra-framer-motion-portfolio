@@ -3,20 +3,21 @@ import {
   Box,
   Heading,
   Image,
-  useColorModeValue
+  useColorModeValue,
+  Button
 } from '@chakra-ui/react'
+
+import NextLink from 'next/link'
+import Section from '../components/section'
+import Paragraph from '../components/paragraph'
+import { ChevronRightIcon } from '@chakra-ui/icons'
+import { BioSection, BioYear } from '../components/bio'
 
 const Page = () => {
   return (
     <Container>
-      <Box
-        borderRadius="lg"
-        bg="gray"
-        p={5}
-        mb={6}
-        align="center"
-      >
-        Welcome to my website 
+      <Box borderRadius="lg" bg="gray" p={5} mb={6} align="center">
+        Welcome to my website
       </Box>
       <Box display={{ md: 'flex' }}>
         <Box flexGrow={1}>
@@ -43,6 +44,49 @@ const Page = () => {
           ></Image>
         </Box>
       </Box>
+      <Section delay={0.1}>
+        <Heading as="h3" variant="section-title">
+          Work
+        </Heading>
+        <Paragraph>
+          As a Software Developer, I had the opportunity to work as a Game
+          Developer on various projects in my other job experiences that
+          challenged me creatively and technically. I develop single and
+          multiplayer HTML5 and mobile games, using Unity, Phaser, and PIXI
+          frameworks. I graduated with a Bachelor's in Business Informatics from
+          İstanbul Bilgi Üniversitesi in June 2021. I gained a solid foundation
+          in programming, data analysis, and business processes during my
+          studies.
+        </Paragraph>
+        <Box align="center" my={4}>
+          <Button
+            as={NextLink}
+            href="/works"
+            scroll={false}
+            rightIcon={<ChevronRightIcon />}
+            colorScheme="teal"
+          >
+            My portfolio
+          </Button>
+        </Box>
+      </Section>
+      <Section delay={0.2}>
+        <Heading as="h3" variant="section-title">
+          Bio
+        </Heading>
+        <BioSection>
+          <BioYear>1999</BioYear>
+          Born in Tekirdag, Turkey
+        </BioSection>
+        <BioSection>
+          <BioYear>2021</BioYear>
+          Graduated from Bachelor's Degree, Business Informatics at Department of Business
+        </BioSection>
+        <BioSection>
+          <BioYear>2021 to 2023</BioYear>
+          Worked as a Game Developer at Azerion
+        </BioSection>
+      </Section>
     </Container>
   )
 }

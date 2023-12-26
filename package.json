@@ -4,27 +4,31 @@
   "description": "My personal portfolio website built with Next.js, Chakra UI, Framer Motion, and Three.js. This project showcases my skills, projects, and provides an interactive experience for visitors.",
   "main": "index.js",
   "scripts": {
-    "dev" :  "next dev -H 0.0.0.0",
-    "build" : "next build",
-    "prettier" : "prettier -write .",
-    "lint" : "next lint",
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "prettier": "prettier -write .",
+    "lint": "next lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "F. Eren Dalcik",
   "license": "MIT",
   "dependencies": {
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.11.3",
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/react": "^2.8.1",
+    "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "framer-motion": "^10.16.16",
-    "next": "^14.0.4",
+    "@vercel/analytics": "^1.1.1",
+    "framer-motion": "^10.16.4",
+    "next": "^13.5.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
+    "three": "^0.157.0"
   },
   "devDependencies": {
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.0.4",
-    "prettier": "^3.1.1"
+    "eslint": "^8.52.0",
+    "eslint-config-next": "^13.5.6",
+    "prettier": "^3.0.3"
   }
 }

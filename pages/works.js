@@ -10,7 +10,7 @@ import Layout from '../components/layouts/article'
 const Works = () => {
   return (
     <Container>
-      <Layout>
+        <Layout title="Works">
         <Heading as="h3" fontSize={20} mb={4}>
           Professional Projects
         </Heading>

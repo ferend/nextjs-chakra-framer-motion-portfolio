@@ -78,7 +78,7 @@ const Navbar = props => {
           <LinkItem href="/works" path={path}>
             Works
           </LinkItem>
-          <LinkItem href="/posts" path={path}>
+          <LinkItem href="/projects" path={path}>
             Projects
           </LinkItem>
         </Stack>
@@ -98,7 +98,7 @@ const Navbar = props => {
                 <NextLink legacyBehavior href="/works" passHref>
                   <MenuItem bg= 'gray' as={Link}> Works</MenuItem>
                 </NextLink>
-                <NextLink legacyBehavior href="/posts" passHref>
+                <NextLink legacyBehavior href="/projects" passHref>
                   <MenuItem bg= 'gray' as={Link}> Projects </MenuItem>
                 </NextLink>
               </MenuList>

@@ -26,7 +26,9 @@ const Page = () => {
             <Heading as="h2" variant="page-title">
               Ferhat Eren Dalçık
             </Heading>
-            <p>Business Informatics Graduate, Software Developer</p>
+            <p>
+              Business Informatics Graduate, Software Developer, IT Specialist
+            </p>
           </Box>
           <Box
             flexShrink={0}
@@ -86,8 +88,13 @@ const Page = () => {
             of Business
           </BioSection>
           <BioSection>
-            <BioYear> 2021 to 2023</BioYear>
-            Worked as a Game Developer at Azerion
+            <BioYear>2021 to 2023</BioYear>
+            Worked as a Game Developer at{' '}
+            <NextLink legacyBehavior href="https://www.azerion.com" passHref>
+              <a style={{ color: 'teal', textDecoration: 'underline' }}>
+                Azerion
+              </a>
+            </NextLink>
           </BioSection>
         </Section>
       </Container>

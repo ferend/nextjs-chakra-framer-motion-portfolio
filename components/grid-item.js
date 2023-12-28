@@ -1,23 +1,43 @@
 import NextLink from 'next/link'
 import Image from 'next/image'
-import { Box, Text, LinkBox, LinkOverlay } from '@chakra-ui/react'
+import {
+  Box,
+  Center,
+  Text,
+  LinkBox,
+  LinkOverlay,
+  Button
+} from '@chakra-ui/react'
 import { Global } from '@emotion/react'
 
-export const GridItem = ({ children, href, title, thumbnail }) => (
-  <Box w="100%" textAlign="center">
+export const GridItem = ({ children, href, title, thumbnail, githubLink }) => (
+  <Box w="100%" textAlign="center" >
     <LinkBox cursor="pointer">
-      <Image
-        src={thumbnail}
-        alt={title}
-        className="grid-item-thumbnail"
-        placeholder="blur"
-        loading="lazy"
-      />
+      <Center>
+        <Image
+          src={thumbnail}
+          alt={title}
+          className="grid-item-thumbnail"
+          placeholder="blur"
+          loading="lazy"
+          style={{ width: '300px', height: '200px' }} // Set a fixed size for the thumbnail
+          objectFit="contain"
+        />
+      </Center>
       <LinkOverlay href={href} target="_blank">
         <Text mt={2}>{title}</Text>
       </LinkOverlay>
       <Text fontSize={14}>{children}</Text>
     </LinkBox>
+    <Button
+      as={NextLink}
+      href={githubLink}
+      scroll={false}
+      colorScheme="teal"
+      mt={2}
+    >
+      Source Code
+    </Button>
   </Box>
 )
 
@@ -49,11 +69,11 @@ export const WorkGridItem = ({
   </Box>
 )
 export const GridItemStyle = () => (
-    <Global
-      styles={`
+  <Global
+    styles={`
         .grid-item-thumbnail {
           border-radius: 12px;
         }
       `}
-    />
-  )
+  />
+)

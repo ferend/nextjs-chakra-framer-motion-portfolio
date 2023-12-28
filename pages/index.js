@@ -17,7 +17,7 @@ import { BioSection, BioYear } from '../components/bio'
 const Page = () => {
   return (
     <Layout>
-      <Container mt={8}>
+      <Container>
         <Box borderRadius="lg" bg="#ffffff40" p={4} mb={9} align="center">
           Welcome to my website
         </Box>

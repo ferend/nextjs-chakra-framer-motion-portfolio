@@ -14,7 +14,7 @@ const WorkBench = () => {
   const [loading, setLoading] = useState(true)
   const [renderer, setRenderer] = useState()
   const [_camera, setCamera] = useState()
-  const [target] = useState(new THREE.Vector3(-0.5, 1.2, 0))
+  const [target] = useState(new THREE.Vector3(-0.5, 0.5, 0))
   const [initialCameraPosition] = useState(
     new THREE.Vector3(
       20 * Math.sin(0.2 * Math.PI),
@@ -53,7 +53,7 @@ const WorkBench = () => {
 
       // 640 -> 240
       // 8 -> 6
-      const scale = scH * 0.003
+      const scale = scH * 0.004
     
       const camera = new THREE.OrthographicCamera(
         -scale,
@@ -128,7 +128,7 @@ const WorkBench = () => {
       ref={refContainer}
       className="workBench"
       m="auto"
-      at={['-20px', '-60px', '-120px']}
+      mt={['-20px', '-60px', '-120px']}
       mb={['-40px', '-140px', '-200px']}
       w={[280, 480, 640]}
       h={[280, 480, 640]}

@@ -42,7 +42,6 @@ const Works = () => {
                 'https://drive.google.com/file/d/1Ln3z5pyUixX07YJh9TtvNaVIiWVo3rVR/viewe'
               }
             ></WorkGridItem>
-            A classic bubble shooter game evolved with 3D mechanics.
           </Section>
           <Section>
             <WorkGridItem

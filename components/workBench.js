@@ -3,7 +3,6 @@ import { Box, Spinner } from '@chakra-ui/react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { loadGLTFModel } from '../lib/model'
-import { render } from 'react-dom'
 
 function easeOutCirc(x) {
   return Math.sqrt(1 - Math.pow(x - 1, 4))
@@ -23,7 +22,6 @@ const WorkBench = () => {
     )
   )
   const [scene] = useState(new THREE.Scene())
-  const [_control, setControls] = useState()
  
   const handleWindowResize = useCallback(() => {
     const { current: container } = refContainer

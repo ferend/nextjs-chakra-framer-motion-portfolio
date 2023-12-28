@@ -1,5 +1,4 @@
 import Logo from './logo'
-import { forwardRef } from 'react'
 import NextLink from 'next/link'
 import {
   Container,
@@ -36,10 +35,6 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
     </Link>
   )
 }
-
-const MenuLink = forwardRef((props, ref) => (
-  <Link ref={ref} as={NextLink} {...props} />
-))
 
 const Navbar = props => {
   const { path } = props

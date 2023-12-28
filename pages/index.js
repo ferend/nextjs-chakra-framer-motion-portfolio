@@ -3,9 +3,7 @@ import {
   Box,
   Heading,
   Image,
-  useColorModeValue,
   Button,
-  SimpleGrid,
   List,
   ListItem,
   Link,
@@ -18,7 +16,6 @@ import Layout from '../components/layouts/article'
 import Paragraph from '../components/paragraph'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BioSection, BioYear } from '../components/bio'
-import { GridItem } from '../components/grid-item'
 import { IoLogoTwitter, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
 
 const Page = () => {
@@ -117,7 +114,7 @@ const Page = () => {
             Developer on various projects in my other job experiences that
             challenged me creatively and technically. I develop single and
             multiplayer HTML5 and mobile games, using Unity, Phaser, and PIXI
-            frameworks. I graduated with a Bachelor's in Business Informatics
+            frameworks. I graduated with a Bachelor`&apos;s in Business Informatics
             from İstanbul Bilgi Üniversitesi in June 2021. I gained a solid
             foundation in programming, data analysis, and business processes
             during my studies.
@@ -145,7 +142,7 @@ const Page = () => {
           </BioSection>
           <BioSection>
             <BioYear>2021</BioYear>
-            Graduated from Bachelor's Degree, Business Informatics at Department
+            Graduated from Bachelor&apos;s Degree, Business Informatics at Department
             of Business
           </BioSection>
           <BioSection>

@@ -1,4 +1,14 @@
-module.exports = {
-    reactStrictMode: true,
-    swcMinify: true
-  }
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
+  images: {
+    unoptimized: true
+  },
+  output: 'export',
+
+  // Optional: Change the output directory `out` -> `dist`
+  distDir: 'dist'
+}
+
+module.exports = nextConfig

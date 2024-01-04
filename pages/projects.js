@@ -10,7 +10,7 @@ import thumbElement from '../public/images/contents/element-pop.png'
 import thumbEndless from '../public/images/contents/endless.png'
 import thumbGem from '../public/images/contents/gem-hunter.png'
 import thumbWord from '../public/images/contents/word.jpg'
-
+import thumbAngular from '../public/images/contents/angular.png'
 const Projects = () => (
   <Layout title="Projects">
     <Container>
@@ -24,6 +24,11 @@ const Projects = () => (
 
       <Section delay={0.1}>
         <SimpleGrid columns={[1, 2, 2]} gap={6}>
+        <GridItem
+            title=".Net Angular App"
+            thumbnail={thumbAngular}
+            githubLink="https://github.com/ferend/dotnet-angular-web-explorer"
+          />
           <GridItem
             title="Gem Hunter"
             thumbnail={thumbGem}
@@ -56,6 +61,11 @@ const Projects = () => (
             githubLink="https://github.com/ferend/element-pop"
           />
           <GridItem
+            title="Multiplayer Car Simulator"
+            thumbnail={thumbCar}
+            githubLink="https://github.com/ferend/multiplayer-racer"
+          />
+          <GridItem
             title="Unity Audio Visualizer"
             thumbnail={thumbAudio}
             githubLink="https://github.com/ferend/unity-audio-visualizer"
@@ -65,11 +75,7 @@ const Projects = () => (
 
       <Section delay={0.3}>
         <SimpleGrid columns={[1, 2, 2]} gap={6}>
-          <GridItem
-            title="Multiplayer Car Simulator"
-            thumbnail={thumbCar}
-            githubLink="https://github.com/ferend/multiplayer-racer"
-          />
+          
         </SimpleGrid>
       </Section>
     </Container>

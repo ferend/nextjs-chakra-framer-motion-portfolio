@@ -39,7 +39,7 @@ const Works = () => {
               title="Bubble Shooter 3D"
               thumbnail={thumbBubble3d}
               link={
-                'https://drive.google.com/file/d/1Ln3z5pyUixX07YJh9TtvNaVIiWVo3rVR/viewe'
+                'https://drive.google.com/file/d/1Ln3z5pyUixX07YJh9TtvNaVIiWVo3rVR/view'
               }
             ></WorkGridItem>
           </Section>

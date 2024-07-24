@@ -4,7 +4,7 @@ import { WorkGridItem } from '../components/grid-item'
 import thumbLol from '../public/images/works/lol.png'
 import thumbBubble from '../public/images/works/bubble.jpeg'
 import thumbBubble3d from '../public/images/works/bubble3d.jpg'
-import thumbStray from '../public/images/works/stray.jpeg'
+import thumbDist from '../public/images/works/distribution.png'
 import Layout from '../components/layouts/article'
 
 const Works = () => {
@@ -15,6 +15,14 @@ const Works = () => {
           Professional Projects
         </Heading>
         <SimpleGrid columns={[1, 1, 2]} gap={6}>
+            <Section>
+                <WorkGridItem
+                    id="bubble3d"
+                    title="Game Distribution"
+                    thumbnail={thumbDist}
+                    link={'https://gamedistribution.com'}
+                ></WorkGridItem>
+            </Section>
           <Section>
             <WorkGridItem
               id="lol"
@@ -41,14 +49,6 @@ const Works = () => {
               link={
                 'https://drive.google.com/file/d/1Ln3z5pyUixX07YJh9TtvNaVIiWVo3rVR/view'
               }
-            ></WorkGridItem>
-          </Section>
-          <Section>
-            <WorkGridItem
-              id="bubble3d"
-              title="Stray Brothers"
-              thumbnail={thumbStray}
-              link={'https://gamedistribution.com/games/stray-brothers'}
             ></WorkGridItem>
           </Section>
         </SimpleGrid>

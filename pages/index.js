@@ -110,14 +110,11 @@ const Page = () => {
             Work
           </Heading>
           <Paragraph>
-            As a Software Developer, I had the opportunity to work as a Game
-            Developer on various projects in my other job experiences that
-            challenged me creatively and technically. I develop single and
-            multiplayer HTML5 and mobile games, using Unity, Phaser, and PIXI
-            frameworks. I graduated with a Bachelor`&apos;s in Business Informatics
-            from İstanbul Bilgi Üniversitesi in June 2021. I gained a solid
-            foundation in programming, data analysis, and business processes
-            during my studies.
+            I hold a background in Business Informatics and have gained practical experience through internships in IT 
+            support and system administration. As a Software Developer, I specialize in creating scalable backend services, 
+            integrating databases, and enhancing user interfaces, with expertise in C#, .NET, and JavaScript technologies. 
+            My experience includes developing mobile and web applications, implementing microservices, and utilizing 
+            containerization tools.
           </Paragraph>
           <Box align="center" my={4}>
             <Button
@@ -147,7 +144,7 @@ const Page = () => {
           </BioSection>
           <BioSection>
             <BioYear>2021 to 2023</BioYear>
-            Worked as a Game Developer at{' '}
+            Worked as a Software Developer at{' '}
             <NextLink legacyBehavior href="https://www.azerion.com" passHref>
               <a style={{ color: 'teal', textDecoration: 'underline' }}>
                 Azerion

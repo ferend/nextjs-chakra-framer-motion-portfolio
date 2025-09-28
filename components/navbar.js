@@ -73,9 +73,9 @@ const Navbar = props => {
           <LinkItem href="/works" path={path}>
             Works
           </LinkItem>
-          <LinkItem href="/projects" path={path}>
-            Projects
-          </LinkItem>
+          {/*<LinkItem href="/projects" path={path}>*/}
+          {/*  Projects*/}
+          {/*</LinkItem>*/}
         </Stack>
         <Box flex={1} align="right">
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>

@@ -16,6 +16,7 @@ import Layout from '../components/layouts/article'
 import Paragraph from '../components/paragraph'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BioSection, BioYear } from '../components/bio'
+import Skills from "../components/Skills";
 import { IoLogoTwitter, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
 
 const Page = () => {
@@ -33,14 +34,13 @@ const Page = () => {
           Welcome to my website
         </Box>
 
-        
         <Box display={{ md: 'flex' }}>
           <Box flexGrow={1}>
             <Heading as="h2" variant="page-title">
               Ferhat Eren Dalçık
             </Heading>
             <p>
-              Business Informatics Graduate, Software Developer, IT Specialist
+              Software Developer, IT Infrastructure Specialist
             </p>
           </Box>
           <Box
@@ -65,7 +65,6 @@ const Page = () => {
           <Heading as="h3" variant="section-title">
             Links
           </Heading>
-
           <List>
             <ListItem>
               <Link
@@ -110,8 +109,8 @@ const Page = () => {
             Work
           </Heading>
           <Paragraph>
-            I hold a background in Business Informatics and have gained practical experience through internships in IT 
-            support and system administration. As a Software Developer, I specialize in creating scalable backend services, 
+            I hold a background in Business Informatics and have gained practical experience through my career in IT 
+            system and infrastructure administration. As a Software Developer, I specialize in creating scalable backend services,
             integrating databases, and enhancing user interfaces, with expertise in C#, .NET, and JavaScript technologies. 
             My experience includes developing mobile and web applications, implementing microservices, and utilizing 
             containerization tools.
@@ -139,15 +138,23 @@ const Page = () => {
           </BioSection>
           <BioSection>
             <BioYear>2021</BioYear>
-            Graduated from Bachelor&apos;s Degree, Business Informatics at Department
-            of Business
+            Graduated from Bachelor&apos;s Degree, Business Informatics
           </BioSection>
           <BioSection>
             <BioYear>2021 to 2023</BioYear>
-            Worked as a Software Developer at{' '}
+             Software Developer at{' '}
             <NextLink legacyBehavior href="https://www.azerion.com" passHref>
               <a style={{ color: 'teal', textDecoration: 'underline' }}>
                 Azerion
+              </a>
+            </NextLink>
+          </BioSection>
+          <BioSection>
+            <BioYear>Currently</BioYear>
+            Software and IT Infrastructure Specialist at {' '}
+            <NextLink legacyBehavior href="https://viennalife.com.tr/" passHref>
+              <a style={{ color: 'teal', textDecoration: 'underline' }}>
+                Viennaife
               </a>
             </NextLink>
           </BioSection>
@@ -165,26 +172,25 @@ const Page = () => {
               alt="Profile Img"
             ></Image>
           </Paragraph>
-
           <BioSection>
             <BioYear>•</BioYear>
-            Business Metrics for Data-Driven Companies{' '}
+
+            AWS Cloud Practitioner Essentials by AWS{' '}
             <NextLink
-              legacyBehavior
-              href="https://www.coursera.org/account/accomplishments/verify/FS8ELVXGH8KB?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
-              passHref
+                legacyBehavior
+                href="https://www.coursera.org/account/accomplishments/verify/625ZZOYRJKNY"
+                passHref
             >
               <a style={{ color: 'teal' }}>(Credential)</a>
             </NextLink>
           </BioSection>
-
           <BioSection>
             <BioYear>•</BioYear>
-            Technical Support Training by Google{' '}
+            DevOps Professional Certificate by PagerDuty{' '}
             <NextLink
-              legacyBehavior
-              href="https://www.coursera.org/account/accomplishments/verify/HQTUVRZVAFAG?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course"
-              passHref
+                legacyBehavior
+                href="https://www.linkedin.com/learning/certificates/f4f6c84a76d13d9bbb5ed0d7feef45c10bd2f98463a96adcd389ee67fdfddcf5"
+                passHref
             >
               <a style={{ color: 'teal' }}>(Credential)</a>
             </NextLink>
@@ -193,14 +199,15 @@ const Page = () => {
             <BioYear>•</BioYear>
             IBM Data Science Orientation{' '}
             <NextLink
-              legacyBehavior
-              href="https://www.credly.com/badges/a66754f0-64a5-4220-8d2d-d7e153640737/linked_in"
-              passHref
+                legacyBehavior
+                href="https://www.credly.com/badges/a66754f0-64a5-4220-8d2d-d7e153640737/linked_in"
+                passHref
             >
               <a style={{ color: 'teal' }}>(Credential)</a>
             </NextLink>
           </BioSection>
         </Section>
+        <Skills />
       </Container>
     </Layout>
   )

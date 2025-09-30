@@ -164,21 +164,32 @@ const Page = () => {
             Certifications
           </Heading>
           <Paragraph>
-            <Image
-              my={4}
-              display="inline-block"
-              borderRadius="full"
-              src="/images/contents/badge.svg"
-              alt="Profile Img"
-            ></Image>
+            {/*<Image*/}
+            {/*  my={4}*/}
+            {/*  display="inline-block"*/}
+            {/*  borderRadius="full"*/}
+            {/*  src="/images/contents/badge.svg"*/}
+            {/*  alt="Profile Img"*/}
+            {/*></Image>*/}
           </Paragraph>
           <BioSection>
             <BioYear>•</BioYear>
 
-            AWS Cloud Practitioner Essentials by AWS{' '}
+            AWS Cloud Practitioner by AWS{' '}
             <NextLink
                 legacyBehavior
                 href="https://www.coursera.org/account/accomplishments/verify/625ZZOYRJKNY"
+                passHref
+            >
+              <a style={{ color: 'teal' }}>(Credential)</a>
+            </NextLink>
+          </BioSection>
+          <BioSection>
+            <BioYear>•</BioYear>
+            Ubuntu Linux Professional Certificate by Canonical{' '}
+            <NextLink
+                legacyBehavior
+                href="https://www.linkedin.com/learning/certificates/051bfb5f3f6f39be5bcc0492b5db11b3c6549404013d6fdd102a300aead0adbf"
                 passHref
             >
               <a style={{ color: 'teal' }}>(Credential)</a>

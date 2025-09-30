@@ -93,9 +93,9 @@ const Navbar = props => {
                 <NextLink legacyBehavior href="/works" passHref>
                   <MenuItem bg= 'gray' as={Link}> Works</MenuItem>
                 </NextLink>
-                <NextLink legacyBehavior href="/projects" passHref>
-                  <MenuItem bg= 'gray' as={Link}> Projects </MenuItem>
-                </NextLink>
+                {/*<NextLink legacyBehavior href="/projects" passHref>*/}
+                {/*  <MenuItem bg= 'gray' as={Link}> Projects </MenuItem>*/}
+                {/*</NextLink>*/}
               </MenuList>
             </Menu>
           </Box>

@@ -5,6 +5,7 @@ import thumbLol from '../public/images/works/lol.png'
 import thumbBubble from '../public/images/works/bubble.jpeg'
 import thumbBubble3d from '../public/images/works/bubble3d.jpg'
 import thumbDist from '../public/images/works/distribution.png'
+// import thumbVl from '../public/images/works/vl.png'
 import Layout from '../components/layouts/article'
 
 const Works = () => {
@@ -15,6 +16,14 @@ const Works = () => {
           Professional Projects
         </Heading>
         <SimpleGrid columns={[1, 1, 2]} gap={6}>
+            {/*<Section>*/}
+            {/*    <WorkGridItem*/}
+            {/*        id="bubble3d"*/}
+            {/*        title="Viennalife"*/}
+            {/*        thumbnail={thumbVl}*/}
+            {/*        link={'https://www.vjoin.com.tr'}*/}
+            {/*    ></WorkGridItem>*/}
+            {/*</Section>*/}
             <Section>
                 <WorkGridItem
                     id="bubble3d"

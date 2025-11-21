@@ -141,7 +141,7 @@ const Page = () => {
             Graduated from Bachelor&apos;s Degree, Business Informatics
           </BioSection>
           <BioSection>
-            <BioYear>2021 to 2023</BioYear>
+            <BioYear>2021 to 2024</BioYear>
              Software Developer at{' '}
             <NextLink legacyBehavior href="https://www.azerion.com" passHref>
               <a style={{ color: 'teal', textDecoration: 'underline' }}>
@@ -151,10 +151,10 @@ const Page = () => {
           </BioSection>
           <BioSection>
             <BioYear>Currently</BioYear>
-            Software and IT Infrastructure Specialist at {' '}
+            Software and IT Infrastructure Management Specialist at {' '}
             <NextLink legacyBehavior href="https://viennalife.com.tr/" passHref>
               <a style={{ color: 'teal', textDecoration: 'underline' }}>
-                Viennaife
+                Viennalife Insurance
               </a>
             </NextLink>
           </BioSection>

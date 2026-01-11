@@ -151,10 +151,10 @@ const Page = () => {
           </BioSection>
           <BioSection>
             <BioYear>Currently</BioYear>
-            Software and IT Infrastructure Management Specialist at {' '}
+            Software and IT Infrastructure Specialist at {' '}
             <NextLink legacyBehavior href="https://viennalife.com.tr/" passHref>
               <a style={{ color: 'teal', textDecoration: 'underline' }}>
-                Viennalife Insurance
+                Viennalife
               </a>
             </NextLink>
           </BioSection>

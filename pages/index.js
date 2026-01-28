@@ -83,7 +83,7 @@ export default function Home() {
             </Heading>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
                 {profile.certifications.map(c => (
-                    <TerminalCard key={c.href} title={c.text} desc="Credential link" href={c.href} />
+                    <TerminalCard key={c.href} title={c.text}  href={c.href} />
                 ))}
             </SimpleGrid>
 

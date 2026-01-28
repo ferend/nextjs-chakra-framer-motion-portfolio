@@ -15,7 +15,7 @@ export default function Works() {
 
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
                 {works.map(w => (
-                    <TerminalCard key={w.title} title={w.title} desc="Open link" href={w.href} image={w.image} />
+                    <TerminalCard key={w.title} title={w.title}  href={w.href} image={w.image} />
                 ))}
             </SimpleGrid>
         </Box>

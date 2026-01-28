@@ -29,9 +29,9 @@ export default function TerminalNav({ path }) {
             <Item href="/" path={path}>
                 home
             </Item>
-            <Item href="/projects" path={path}>
-                projects
-            </Item>
+            {/*<Item href="/projects" path={path}>*/}
+            {/*    projects*/}
+            {/*</Item>*/}
             <Item href="/works" path={path}>
                 works
             </Item>

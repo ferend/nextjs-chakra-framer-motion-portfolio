@@ -1,226 +1,102 @@
-import {
-  Container,
-  Box,
-  Heading,
-  Image,
-  Button,
-  List,
-  ListItem,
-  Link,
-  Icon
-} from '@chakra-ui/react'
+// pages/index.js
+import { Box, Heading, Text, HStack, Link, Divider, SimpleGrid } from '@chakra-ui/react'
+import { profile } from '../lib/data'
+import TerminalCard from '../components/TerminalCard'
+import Image from 'next/image'
+import SkillGrid from '../components/SkillGrid'
+import { skillIcons } from '../lib/data'
 
-import NextLink from 'next/link'
-import Section from '../components/section'
-import Layout from '../components/layouts/article'
-import Paragraph from '../components/paragraph'
-import { ChevronRightIcon } from '@chakra-ui/icons'
-import { BioSection, BioYear } from '../components/bio'
-import Skills from "../components/Skills";
-import { IoLogoTwitter, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
+export default function Home() {
+    return (
+        <Box>
 
-const Page = () => {
-  return (
-    <Layout>
-      <Container>
-        <Box
-          borderRadius="lg"
-          bg="#ffffff40"
-          p={4}
-          mb={9}
-          my={15}
-          align="center"
-        >
-          Welcome to my website
-        </Box>
+            <HStack spacing={4} align="center">
+                <Box
+                    position="relative"
+                    w="88px"
+                    h="88px"
+                    borderRadius="10px"
+                    overflow="hidden"
+                    border="1px solid"
+                    borderColor="termBorder"
+                    bg="black"
+                    boxShadow="0 0 18px rgba(0,255,208,0.35)"
+                >
+                    <Image
+                        src={profile.logo}
+                        alt="logo"
+                        fill
+                        style={{
+                            objectFit: 'contain',
+                            filter: 'drop-shadow(0 0 6px rgba(0,255,208,0.7)) brightness(1.2)'
+                        }}
+                    />
+                </Box>
 
-        <Box display={{ md: 'flex' }}>
-          <Box flexGrow={1}>
-            <Heading as="h2" variant="page-title">
-              Ferhat Eren Dalçık
+                <Heading fontSize={{ base: '2xl', md: '3xl' }} color="termText">
+                    {profile.name}
+                </Heading>
+            </HStack>
+
+            <Text mt={2} color="termDim" fontSize="sm">
+                {profile.title}
+            </Text>
+
+            <Divider my={5} borderColor="termBorder" />
+
+            <Text fontSize="sm" color="termDim" whiteSpace="pre-line">
+                <Text as="span" color="termAccent">
+                    $ whoami
+                </Text>
+                {'\n'}
+                {profile.summary}
+            </Text>
+
+            <HStack mt={6} spacing={4} flexWrap="wrap">
+                {profile.links.map(l => (
+                    <Link key={l.href} href={l.href} isExternal color="termAccent" _hover={{ textDecoration: 'none' }}>
+                        [{l.label}: {l.handle}]
+                    </Link>
+                ))}
+            </HStack>
+
+            <Divider my={6} borderColor="termBorder" />
+
+            <Heading fontSize="lg" color="termText" mb={3}>
+                Bio
             </Heading>
-            <p>
-              Software Developer, IT Infrastructure Specialist
-            </p>
-          </Box>
-          <Box
-            flexShrink={0}
-            mt={{ base: 8, md: 0 }}
-            ml={{ md: 6 }}
-            align="center"
-          >
-            <Image
-              borderColor="gray"
-              borderWidth={2}
-              borderStyle="solid"
-              maxWidth="100px"
-              display="inline-block"
-              borderRadius="full"
-              src="/images/ferhat2.jpg"
-              alt="Profile Img"
-            ></Image>
-          </Box>
-        </Box>
-        <Section delay={0.3}>
-          <Heading as="h3" variant="section-title">
-            Links
-          </Heading>
-          <List>
-            <ListItem>
-              <Link
-                href="https://www.linkedin.com/in/erendalcik/"
-                target="_blank"
-              >
-                <Button
-                  variant="ghost"
-                  colorScheme="teal"
-                  leftIcon={<Icon as={IoLogoLinkedin} />}
-                >
-                  erendalcik
-                </Button>
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link href="https://github.com/ferend" target="_blank">
-                <Button
-                  variant="ghost"
-                  colorScheme="teal"
-                  leftIcon={<Icon as={IoLogoGithub} />}
-                >
-                  ferend
-                </Button>
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link href="https://twitter.com/erendalcik" target="_blank">
-                <Button
-                  variant="ghost"
-                  colorScheme="teal"
-                  leftIcon={<Icon as={IoLogoTwitter} />}
-                >
-                  erendalcik
-                </Button>
-              </Link>
-            </ListItem>
-          </List>
-        </Section>
-        <Section delay={0.1}>
-          <Heading as="h3" variant="section-title">
-            Work
-          </Heading>
-          <Paragraph>
-            I hold a background in Business Informatics and have gained practical experience through my career in IT 
-            system and infrastructure administration. As a Software Developer, I specialize in creating scalable backend services,
-            integrating databases, and enhancing user interfaces, with expertise in C#, .NET, and JavaScript technologies. 
-            My experience includes developing mobile and web applications, implementing microservices, and utilizing 
-            containerization tools.
-          </Paragraph>
-          <Box align="center" my={4}>
-            <Button
-              as={NextLink}
-              href="/works"
-              scroll={false}
-              rightIcon={<ChevronRightIcon />}
-              colorScheme="teal"
-            >
-              My portfolio
-            </Button>
-          </Box>
-        </Section>
-        
-        <Section delay={0.2}>
-          <Heading as="h3" variant="section-title">
-            Bio
-          </Heading>
-          <BioSection>
-            <BioYear>1999</BioYear>
-            Born in Tekirdag, Turkey
-          </BioSection>
-          <BioSection>
-            <BioYear>2021</BioYear>
-            Graduated from Bachelor&apos;s Degree, Business Informatics
-          </BioSection>
-          <BioSection>
-            <BioYear>2021 to 2024</BioYear>
-             Software Developer at{' '}
-            <NextLink legacyBehavior href="https://www.azerion.com" passHref>
-              <a style={{ color: 'teal', textDecoration: 'underline' }}>
-                Azerion
-              </a>
-            </NextLink>
-          </BioSection>
-          <BioSection>
-            <BioYear>Currently</BioYear>
-            Software and IT Infrastructure Specialist at {' '}
-            <NextLink legacyBehavior href="https://viennalife.com.tr/" passHref>
-              <a style={{ color: 'teal', textDecoration: 'underline' }}>
-                Viennalife
-              </a>
-            </NextLink>
-          </BioSection>
-        </Section>
-        <Section delay={0.3}>
-          <Heading as="h3" variant="section-title">
-            Certifications
-          </Heading>
-          <Paragraph>
-            {/*<Image*/}
-            {/*  my={4}*/}
-            {/*  display="inline-block"*/}
-            {/*  borderRadius="full"*/}
-            {/*  src="/images/contents/badge.svg"*/}
-            {/*  alt="Profile Img"*/}
-            {/*></Image>*/}
-          </Paragraph>
-          <BioSection>
-            <BioYear>•</BioYear>
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+                {profile.bio.map(item => (
+                    <TerminalCard
+                        key={item.year + item.text}
+                        title={item.year}
+                        desc={item.text}
+                        href={item.href || null}
+                    />
+                ))}
+            </SimpleGrid>
 
-            AWS Cloud Practitioner by AWS{' '}
-            <NextLink
-                legacyBehavior
-                href="https://www.coursera.org/account/accomplishments/verify/625ZZOYRJKNY"
-                passHref
-            >
-              <a style={{ color: 'teal' }}>(Credential)</a>
-            </NextLink>
-          </BioSection>
-          <BioSection>
-            <BioYear>•</BioYear>
-            Ubuntu Linux Professional Certificate by Canonical{' '}
-            <NextLink
-                legacyBehavior
-                href="https://www.linkedin.com/learning/certificates/051bfb5f3f6f39be5bcc0492b5db11b3c6549404013d6fdd102a300aead0adbf"
-                passHref
-            >
-              <a style={{ color: 'teal' }}>(Credential)</a>
-            </NextLink>
-          </BioSection>
-          <BioSection>
-            <BioYear>•</BioYear>
-            DevOps Professional Certificate by PagerDuty{' '}
-            <NextLink
-                legacyBehavior
-                href="https://www.linkedin.com/learning/certificates/f4f6c84a76d13d9bbb5ed0d7feef45c10bd2f98463a96adcd389ee67fdfddcf5"
-                passHref
-            >
-              <a style={{ color: 'teal' }}>(Credential)</a>
-            </NextLink>
-          </BioSection>
-          <BioSection>
-            <BioYear>•</BioYear>
-            IBM Data Science Orientation{' '}
-            <NextLink
-                legacyBehavior
-                href="https://www.credly.com/badges/a66754f0-64a5-4220-8d2d-d7e153640737/linked_in"
-                passHref
-            >
-              <a style={{ color: 'teal' }}>(Credential)</a>
-            </NextLink>
-          </BioSection>
-        </Section>
-        <Skills />
-      </Container>
-    </Layout>
-  )
+            <Divider my={6} borderColor="termBorder" />
+
+            <Heading fontSize="lg" color="termText" mb={3}>
+                Certifications
+            </Heading>
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+                {profile.certifications.map(c => (
+                    <TerminalCard key={c.href} title={c.text} desc="Credential link" href={c.href} />
+                ))}
+            </SimpleGrid>
+
+            <Divider my={6} borderColor="termBorder" />
+            
+
+            <Divider my={6} borderColor="termBorder" />
+
+            <Heading fontSize="lg" color="termText" mb={3}>
+                Technical Depth
+            </Heading>
+            <SkillGrid items={skillIcons} />
+            
+        </Box>
+    )
 }
-export default Page

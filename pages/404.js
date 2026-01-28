@@ -1,26 +1,19 @@
+// pages/404.js
 import NextLink from 'next/link'
-import {
-  Box,
-  Heading,
-  Text,
-  Container,
-  Divider,
-  Button
-} from '@chakra-ui/react'
+import { Box, Heading, Text, Link } from '@chakra-ui/react'
 
-const NotFound = () => {
-  return (
-    <Container>
-      <Heading as="h1">Not found</Heading>
-      <Text>Seems like you are lost {':('} .</Text>
-      <Divider my={6} />
-      <Box my={6} align="center">
-        <Button as={NextLink} href="/" colorScheme="teal">
-          Return to home
-        </Button>
-      </Box>
-    </Container>
-  )
+export default function NotFound() {
+    return (
+        <Box>
+            <Heading fontSize="xl" color="termText">
+                404
+            </Heading>
+            <Text mt={2} color="termDim" fontSize="sm">
+                This path doesn’t exist.
+            </Text>
+            <Link as={NextLink} href="/" color="termAccent" mt={4} display="inline-block" _hover={{ textDecoration: 'none' }}>
+                ← back home
+            </Link>
+        </Box>
+    )
 }
-
-export default NotFound

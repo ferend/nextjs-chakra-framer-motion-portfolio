@@ -28,13 +28,35 @@ export default function Home() {
             <Divider my={6} borderColor="termBorder" />
 
             <Reveal delay={0.04}>
-                <Text fontSize="sm" color="termDim" whiteSpace="pre-line">
-                    <Text as="span" color="termAccent">
+                <Box
+                    w="full"
+                    border="1px solid"
+                    borderColor="termBorder"
+                    borderRadius="12px"
+                    bg="rgba(0,0,0,0.18)"
+                    p={5}
+                >
+                    {/* prompt line */}
+                    <Text fontSize="sm" color="termAccent" mb={2}>
                         $ whoami
                     </Text>
-                    {'\n'}
-                    {profile.summary}
-                </Text>
+
+                    {/* paragraph (no forced line breaks) */}
+                    <Text
+                        fontSize="sm"
+                        color="termDim"
+                        lineHeight="1.7"
+                        textAlign="left"
+                        whiteSpace="normal"
+                    >
+                        {String(profile.summary)
+                            .replace(/\s*\n+\s*/g, ' ')
+                            .replace(/\s{2,}/g, ' ')
+                            .trim()}
+                    </Text>
+                </Box>
+
+
             </Reveal>
 
             <Divider my={6} borderColor="termBorder" />

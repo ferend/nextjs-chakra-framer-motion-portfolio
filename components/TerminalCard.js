@@ -6,6 +6,8 @@ import { MotionBox } from './motion'
 export default function TerminalCard({ title, desc, tags = [], href, meta, image }) {
     return (
         <MotionBox
+            w="full"
+            maxW="full"
             border="1px solid"
             borderColor="termBorder"
             borderRadius="12px"
@@ -20,8 +22,7 @@ export default function TerminalCard({ title, desc, tags = [], href, meta, image
             style={{ transform: 'translateZ(0)' }}
             _hover={{ boxShadow: '0 0 24px rgba(0,255,208,0.14)' }}
         >
-
-        {image ? (
+            {image ? (
                 <Box position="relative" w="100%" h="140px" borderBottom="1px solid" borderColor="termBorder">
                     <Image
                         src={image}
@@ -39,9 +40,9 @@ export default function TerminalCard({ title, desc, tags = [], href, meta, image
                 </Box>
             ) : null}
 
-            <Box p={4}>
+            <Box p={4} w="full" maxW="full">
                 <HStack justify="space-between" align="start" spacing={4}>
-                    <Box>
+                    <Box w="full" maxW="full">
                         <Heading fontSize="md" color="termText" mb={1}>
                             {href ? (
                                 <Link href={href} isExternal color="termAccent" _hover={{ textDecoration: 'none' }}>
@@ -59,7 +60,7 @@ export default function TerminalCard({ title, desc, tags = [], href, meta, image
                         ) : null}
 
                         {desc ? (
-                            <Text fontSize="sm" color="termDim">
+                            <Text fontSize="sm" color="termDim" w="full" maxW="full">
                                 {desc}
                             </Text>
                         ) : null}

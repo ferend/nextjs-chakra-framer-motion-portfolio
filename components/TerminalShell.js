@@ -42,8 +42,10 @@ export default function TerminalShell({ children, path }) {
             variants={shellVariants}
             initial="hidden"
             animate="show"
+            w="full"
+            maxW="full"
         >
-            {/* subtle breathing highlight (very light, not “glow”) */}
+            {/* subtle breathing highlight */}
             <MotionBox
                 pointerEvents="none"
                 position="absolute"
@@ -94,12 +96,12 @@ export default function TerminalShell({ children, path }) {
 
             {/* body */}
             <MotionBox variants={itemVariants}>
-                <Box px={{ base: 4, md: 6 }} py={{ base: 6, md: 8 }}>
+                <Box px={{ base: 4, md: 6 }} py={{ base: 6, md: 8 }} w="full" maxW="full">
                     {children}
                 </Box>
             </MotionBox>
 
-            {/* optional prompt bar (subtle) */}
+            {/* prompt bar */}
             <MotionBox
                 variants={itemVariants}
                 borderTop="1px solid"

@@ -1,11 +1,16 @@
-// pages/_app.js
 import { ChakraProvider } from '@chakra-ui/react'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { theme } from '../lib/theme'
-import Layout from "../components/Layouts";
+import Layout from '../components/Layouts'
 
 if (typeof window !== 'undefined') {
     window.history.scrollRestoration = 'manual'
+}
+
+const pageVariants = {
+    initial: { opacity: 0, y: 10, filter: 'blur(2px)' },
+    animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
+    exit: { opacity: 0, y: -8, filter: 'blur(2px)' }
 }
 
 export default function App({ Component, pageProps, router }) {
@@ -19,7 +24,16 @@ export default function App({ Component, pageProps, router }) {
                         if (typeof window !== 'undefined') window.scrollTo({ top: 0 })
                     }}
                 >
-                    <Component {...pageProps} key={router.asPath} />
+                    <motion.div
+                        key={router.asPath}
+                        variants={pageVariants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        transition={{ duration: 0.25, ease: 'easeOut' }}
+                    >
+                        <Component {...pageProps} />
+                    </motion.div>
                 </AnimatePresence>
             </Layout>
         </ChakraProvider>

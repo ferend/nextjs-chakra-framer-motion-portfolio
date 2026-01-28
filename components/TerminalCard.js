@@ -1,19 +1,27 @@
 // components/TerminalCard.js
 import { Box, Heading, Text, HStack, Link, Tag } from '@chakra-ui/react'
 import Image from 'next/image'
+import { MotionBox } from './motion'
 
 export default function TerminalCard({ title, desc, tags = [], href, meta, image }) {
     return (
-        <Box
+        <MotionBox
             border="1px solid"
             borderColor="termBorder"
             borderRadius="12px"
             overflow="hidden"
             bg="rgba(0,0,0,0.18)"
-            _hover={{ boxShadow: '0 0 24px rgba(0,255,208,0.10)' }}
-            transition="box-shadow 0.2s ease"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.35, ease: 'easeOut' }}
+            whileHover={{ y: -5, scale: 1.01 }}
+            whileTap={{ scale: 0.99 }}
+            style={{ transform: 'translateZ(0)' }}
+            _hover={{ boxShadow: '0 0 24px rgba(0,255,208,0.14)' }}
         >
-            {image ? (
+
+        {image ? (
                 <Box position="relative" w="100%" h="140px" borderBottom="1px solid" borderColor="termBorder">
                     <Image
                         src={image}
@@ -23,7 +31,6 @@ export default function TerminalCard({ title, desc, tags = [], href, meta, image
                         style={{ objectFit: 'cover' }}
                         priority={false}
                     />
-                    {/* subtle overlay to keep terminal mood */}
                     <Box
                         position="absolute"
                         inset={0}
@@ -61,7 +68,7 @@ export default function TerminalCard({ title, desc, tags = [], href, meta, image
 
                 {tags.length ? (
                     <HStack mt={3} spacing={2} wrap="wrap">
-                        {tags.map(t => (
+                        {tags.map((t) => (
                             <Tag key={t} size="sm" variant="outline" borderColor="termBorder" color="termAccent">
                                 {t}
                             </Tag>
@@ -69,6 +76,6 @@ export default function TerminalCard({ title, desc, tags = [], href, meta, image
                     </HStack>
                 ) : null}
             </Box>
-        </Box>
+        </MotionBox>
     )
 }

@@ -1,9 +1,18 @@
-// components/TerminalCard.js
 import { Box, Heading, Text, HStack, Link, Tag } from '@chakra-ui/react'
 import Image from 'next/image'
 import { MotionBox } from './motion'
 
-export default function TerminalCard({ title, desc, tags = [], href, meta, image }) {
+export default function TerminalCard({
+                                         title,
+                                         desc,
+                                         tags = [],
+                                         href,
+                                         meta,
+                                         image,
+                                         variant // "bio" or undefined
+                                     }) {
+    const isBio = variant === 'bio'
+
     return (
         <MotionBox
             w="full"
@@ -26,7 +35,7 @@ export default function TerminalCard({ title, desc, tags = [], href, meta, image
                 <Box position="relative" w="100%" h="140px" borderBottom="1px solid" borderColor="termBorder">
                     <Image
                         src={image}
-                        alt={title}
+                        alt={isBio ? (desc || title) : title}
                         fill
                         sizes="(max-width: 768px) 100vw, 50vw"
                         style={{ objectFit: 'cover' }}
@@ -41,41 +50,66 @@ export default function TerminalCard({ title, desc, tags = [], href, meta, image
             ) : null}
 
             <Box p={4} w="full" maxW="full">
-                <HStack justify="space-between" align="start" spacing={4}>
-                    <Box w="full" maxW="full">
-                        <Heading fontSize="md" color="termText" mb={1}>
+                {isBio ? (
+                    <Box w="full">
+                        <Text fontSize="sm" color="termText" mb={2}>
                             {href ? (
-                                <Link href={href} isExternal color="termAccent" _hover={{ textDecoration: 'none' }}>
-                                    {title}
+                                <Link
+                                    href={href}
+                                    isExternal
+                                    color="termText"
+                                    _hover={{ textDecoration: 'none', color: 'termText' }}
+                                >
+                                    {desc}
                                 </Link>
                             ) : (
-                                title
+                                desc
                             )}
-                        </Heading>
+                        </Text>
 
-                        {meta ? (
-                            <Text fontSize="xs" color="termDim" mb={2}>
-                                {meta}
-                            </Text>
-                        ) : null}
+                        <Text fontSize="xs" color="termDim">
+                            {title}
+                        </Text>
+                    </Box>
+                ) : (
+                    <Box w="full">
+                        <HStack justify="space-between" align="start" spacing={4}>
+                            <Box w="full" maxW="full">
+                                <Heading fontSize="md" color="termText" mb={1}>
+                                    {href ? (
+                                        <Link href={href} isExternal color="termAccent" _hover={{ textDecoration: 'none' }}>
+                                            {title}
+                                        </Link>
+                                    ) : (
+                                        title
+                                    )}
+                                </Heading>
 
-                        {desc ? (
-                            <Text fontSize="sm" color="termDim" w="full" maxW="full">
-                                {desc}
-                            </Text>
+                                {meta ? (
+                                    <Text fontSize="xs" color="termDim" mb={2}>
+                                        {meta}
+                                    </Text>
+                                ) : null}
+
+                                {desc ? (
+                                    <Text fontSize="sm" color="termDim" w="full" maxW="full">
+                                        {desc}
+                                    </Text>
+                                ) : null}
+                            </Box>
+                        </HStack>
+
+                        {tags.length ? (
+                            <HStack mt={3} spacing={2} wrap="wrap">
+                                {tags.map((t) => (
+                                    <Tag key={t} size="sm" variant="outline" borderColor="termBorder" color="termAccent">
+                                        {t}
+                                    </Tag>
+                                ))}
+                            </HStack>
                         ) : null}
                     </Box>
-                </HStack>
-
-                {tags.length ? (
-                    <HStack mt={3} spacing={2} wrap="wrap">
-                        {tags.map((t) => (
-                            <Tag key={t} size="sm" variant="outline" borderColor="termBorder" color="termAccent">
-                                {t}
-                            </Tag>
-                        ))}
-                    </HStack>
-                ) : null}
+                )}
             </Box>
         </MotionBox>
     )

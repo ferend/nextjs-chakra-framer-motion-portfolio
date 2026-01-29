@@ -19,6 +19,11 @@ const Reveal = ({ children, delay = 0 }) => (
 )
 
 export default function Home() {
+    const cleanSummary = String(profile.summary)
+        .replace(/\s*\n+\s*/g, ' ')
+        .replace(/\s{2,}/g, ' ')
+        .trim()
+
     return (
         <Box>
             <Reveal delay={0.02}>
@@ -27,6 +32,7 @@ export default function Home() {
 
             <Divider my={6} borderColor="termBorder" />
 
+            {/* WHOAMI PANEL */}
             <Reveal delay={0.04}>
                 <Box
                     w="full"
@@ -36,42 +42,32 @@ export default function Home() {
                     bg="rgba(0,0,0,0.18)"
                     p={5}
                 >
-                    {/* prompt line */}
                     <Text fontSize="sm" color="termAccent" mb={2}>
                         $ whoami
                     </Text>
 
-                    {/* paragraph (no forced line breaks) */}
-                    <Text
-                        fontSize="sm"
-                        color="termDim"
-                        lineHeight="1.7"
-                        textAlign="left"
-                        whiteSpace="normal"
-                    >
-                        {String(profile.summary)
-                            .replace(/\s*\n+\s*/g, ' ')
-                            .replace(/\s{2,}/g, ' ')
-                            .trim()}
+                    <Text fontSize="sm" color="termDim" lineHeight="1.7" textAlign="left" whiteSpace="normal">
+                        {cleanSummary}
                     </Text>
                 </Box>
-
-
             </Reveal>
 
             <Divider my={6} borderColor="termBorder" />
 
+            {/* BIO */}
             <Reveal delay={0.05}>
                 <Heading fontSize="lg" color="termText" mb={3}>
                     Bio
                 </Heading>
+
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
                     {profile.bio.map((item) => (
                         <TerminalCard
                             key={`${item.year}-${item.text}`}
-                            title={item.year}
-                            desc={item.text}
+                            title={item.year}   // date goes bottom
+                            desc={item.text}    // text goes top
                             href={item.href || null}
+                            variant="bio"
                         />
                     ))}
                 </SimpleGrid>
@@ -79,19 +75,27 @@ export default function Home() {
 
             <Divider my={6} borderColor="termBorder" />
 
+            {/* CERTIFICATIONS */}
             <Reveal delay={0.05}>
                 <Heading fontSize="lg" color="termText" mb={3}>
                     Certifications
                 </Heading>
+
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
                     {profile.certifications.map((c) => (
-                        <TerminalCard key={c.href} title={c.text} desc="Open credential" href={c.href} />
+                        <TerminalCard
+                            key={c.href}
+                            title={c.text}
+                            desc="Open credential"
+                            href={c.href}
+                        />
                     ))}
                 </SimpleGrid>
             </Reveal>
 
             <Divider my={6} borderColor="termBorder" />
 
+            {/* SKILLS */}
             <Reveal delay={0.05}>
                 <Heading fontSize="lg" color="termText" mb={3}>
                     Technical Depth

@@ -1,4 +1,4 @@
-// pages/index.js
+import Head from "next/head";
 import { Box, Heading, Text, Divider, SimpleGrid } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
@@ -25,83 +25,99 @@ export default function Home() {
         .trim()
 
     return (
-        <Box>
-            <Reveal delay={0.02}>
-                <ProfileCard profile={profile} />
-            </Reveal>
+        <>
+            <Head>
+                <title>Ferhat Dalçık</title>
+                <meta
+                    name="description"
+                    content="Personal portfolio of Ferhat Dalçık"
+                />
+            </Head>
 
-            <Divider my={6} borderColor="termBorder" />
+            <Box>
+                <Reveal delay={0.02}>
+                    <ProfileCard profile={profile} />
+                </Reveal>
 
-            {/* WHOAMI PANEL */}
-            <Reveal delay={0.04}>
-                <Box
-                    w="full"
-                    border="1px solid"
-                    borderColor="termBorder"
-                    borderRadius="12px"
-                    bg="rgba(0,0,0,0.18)"
-                    p={5}
-                >
-                    <Text fontSize="sm" color="termAccent" mb={2}>
-                        $ whoami
-                    </Text>
+                <Divider my={6} borderColor="termBorder" />
 
-                    <Text fontSize="sm" color="termDim" lineHeight="1.7" textAlign="left" whiteSpace="normal">
-                        {cleanSummary}
-                    </Text>
-                </Box>
-            </Reveal>
+                {/* WHOAMI PANEL */}
+                <Reveal delay={0.04}>
+                    <Box
+                        w="full"
+                        border="1px solid"
+                        borderColor="termBorder"
+                        borderRadius="12px"
+                        bg="rgba(0,0,0,0.18)"
+                        p={5}
+                    >
+                        <Text fontSize="sm" color="termAccent" mb={2}>
+                            $ whoami
+                        </Text>
 
-            <Divider my={6} borderColor="termBorder" />
+                        <Text
+                            fontSize="sm"
+                            color="termDim"
+                            lineHeight="1.7"
+                            textAlign="left"
+                            whiteSpace="normal"
+                        >
+                            {cleanSummary}
+                        </Text>
+                    </Box>
+                </Reveal>
 
-            {/* BIO */}
-            <Reveal delay={0.05}>
-                <Heading fontSize="lg" color="termText" mb={3}>
-                    Bio
-                </Heading>
+                <Divider my={6} borderColor="termBorder" />
 
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
-                    {profile.bio.map((item) => (
-                        <TerminalCard
-                            key={`${item.year}-${item.text}`}
-                            title={item.year}   // date goes bottom
-                            desc={item.text}    // text goes top
-                            href={item.href || null}
-                            variant="bio"
-                        />
-                    ))}
-                </SimpleGrid>
-            </Reveal>
+                {/* BIO */}
+                <Reveal delay={0.05}>
+                    <Heading fontSize="lg" color="termText" mb={3}>
+                        Bio
+                    </Heading>
 
-            <Divider my={6} borderColor="termBorder" />
+                    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+                        {profile.bio.map((item) => (
+                            <TerminalCard
+                                key={`${item.year}-${item.text}`}
+                                title={item.year}
+                                desc={item.text}
+                                href={item.href || null}
+                                variant="bio"
+                            />
+                        ))}
+                    </SimpleGrid>
+                </Reveal>
 
-            {/* CERTIFICATIONS */}
-            <Reveal delay={0.05}>
-                <Heading fontSize="lg" color="termText" mb={3}>
-                    Certifications
-                </Heading>
+                <Divider my={6} borderColor="termBorder" />
 
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
-                    {profile.certifications.map((c) => (
-                        <TerminalCard
-                            key={c.href}
-                            title={c.text}
-                            desc="Open credential"
-                            href={c.href}
-                        />
-                    ))}
-                </SimpleGrid>
-            </Reveal>
+                {/* CERTIFICATIONS */}
+                <Reveal delay={0.05}>
+                    <Heading fontSize="lg" color="termText" mb={3}>
+                        Certifications
+                    </Heading>
 
-            <Divider my={6} borderColor="termBorder" />
+                    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+                        {profile.certifications.map((c) => (
+                            <TerminalCard
+                                key={c.href}
+                                title={c.text}
+                                desc="Open credential"
+                                href={c.href}
+                            />
+                        ))}
+                    </SimpleGrid>
+                </Reveal>
 
-            {/* SKILLS */}
-            <Reveal delay={0.05}>
-                <Heading fontSize="lg" color="termText" mb={3}>
-                    Technical Depth
-                </Heading>
-                <SkillGrid items={skillIcons} />
-            </Reveal>
-        </Box>
+                <Divider my={6} borderColor="termBorder" />
+
+                {/* SKILLS */}
+                <Reveal delay={0.05}>
+                    <Heading fontSize="lg" color="termText" mb={3}>
+                        Technical Depth
+                    </Heading>
+                    <SkillGrid items={skillIcons} />
+                </Reveal>
+            </Box>
+        </>
     )
 }

@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio
+  namespace: portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portfolio
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        app: portfolio
+    spec:
+      containers:
+        - name: portfolio
+          image: portfolio:8c00edc
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "64Mi"
+            requests:
+              cpu: "10m"
+              memory: "32Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio-svc
+  namespace: portfolio
+spec:
+  type: ClusterIP
+  selector:
+    app: portfolio
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP

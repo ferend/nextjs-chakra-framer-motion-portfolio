@@ -1,4 +1,3 @@
-sudo tee /opt/portfolio/deploy.sh << 'EOF'
 #!/usr/bin/env bash
 set -e
 cd /opt/portfolio
@@ -17,6 +16,4 @@ sudo kubectl apply -f /opt/portfolio/k8s/deploy.yaml
 echo ">>> Waiting for rollout"
 sudo kubectl rollout status deployment/portfolio -n portfolio
 echo ""
-echo " Done. Deployed $IMAGE"
-EOF
-sudo chmod +x /opt/portfolio/deploy.sh
+echo "Done. Deployed the $IMAGE"

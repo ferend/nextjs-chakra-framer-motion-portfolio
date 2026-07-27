@@ -1,10 +1,9 @@
 import Head from "next/head";
-import { Box, Heading, Text, Divider, SimpleGrid } from '@chakra-ui/react'
+import { Box, Heading, Text, Divider, HStack, Link } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 import { profile, skillIcons } from '../lib/data'
 import ProfileCard from '../components/ProfileCard'
-import TerminalCard from '../components/TerminalCard'
 import SkillGrid from '../components/SkillGrid'
 
 const Reveal = ({ children, delay = 0 }) => (
@@ -45,11 +44,9 @@ export default function Home() {
                 <Reveal delay={0.04}>
                     <Box
                         w="full"
-                        border="1px solid"
-                        borderColor="termBorder"
-                        borderRadius="12px"
-                        bg="rgba(0,0,0,0.18)"
-                        p={5}
+                        borderLeft="2px solid"
+                        borderColor="termAccent"
+                        pl={4}
                     >
                         <Text fontSize="sm" color="termAccent" mb={2}>
                             $ whoami
@@ -75,17 +72,25 @@ export default function Home() {
                         Bio
                     </Heading>
 
-                    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
-                        {profile.bio.map((item) => (
-                            <TerminalCard
+                    <Box>
+                        {profile.bio.map((item, i) => (
+                            <Box
                                 key={`${item.year}-${item.text}`}
-                                title={item.year}
-                                desc={item.text}
-                                href={item.href || null}
-                                variant="bio"
-                            />
+                                py={3}
+                                borderTop={i === 0 ? 'none' : '1px solid'}
+                                borderColor="termBorder"
+                            >
+                                <HStack justify="space-between" align="flex-start">
+                                    <Text fontSize="sm" color="termText">
+                                        {item.text}
+                                    </Text>
+                                    <Text fontSize="xs" color="termAccent" whiteSpace="nowrap" pl={4}>
+                                        {item.year}
+                                    </Text>
+                                </HStack>
+                            </Box>
                         ))}
-                    </SimpleGrid>
+                    </Box>
                 </Reveal>
 
                 <Divider my={6} borderColor="termBorder" />
@@ -96,16 +101,26 @@ export default function Home() {
                         Certifications
                     </Heading>
 
-                    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
-                        {profile.certifications.map((c) => (
-                            <TerminalCard
+                    <Box>
+                        {profile.certifications.map((c, i) => (
+                            <Box
                                 key={c.href}
-                                title={c.text}
-                                desc="Open credential"
-                                href={c.href}
-                            />
+                                py={3}
+                                borderTop={i === 0 ? 'none' : '1px solid'}
+                                borderColor="termBorder"
+                            >
+                                <Link
+                                    href={c.href}
+                                    isExternal
+                                    fontSize="sm"
+                                    color="termDim"
+                                    _hover={{ color: 'termAccent', textDecoration: 'underline' }}
+                                >
+                                    {c.text}
+                                </Link>
+                            </Box>
                         ))}
-                    </SimpleGrid>
+                    </Box>
                 </Reveal>
 
                 <Divider my={6} borderColor="termBorder" />
